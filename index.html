@@ -84,7 +84,7 @@ const bars=(o,fmt=k=>k)=>{const mx=Math.max(1,...Object.values(o));return Object
 /* ---------- Halaman ---------- */
 const V={
   async home(){const s=await api('stat');
-    return `<div class="cd"><h2>Suaramu penting.</h2><p class="mu">Sampaikan saran, kritik, dan pengaduan untuk ${SCH} tanpa menyebut nama.</p><button class="b" onclick="form()">+ Kirim Aspirasi</button></div>
+    return `<div class="cd"><h2>Suaramu penting.</h2><p class="mu">Sampaikan saran, kritik, dan pengaduan untuk ${SCH} tanpa menyebut nama.</p><button class="b" onclick="formAspirasi()">+ Kirim Aspirasi</button></div>
     <div class="row"><div class="cd k"><small>Masuk</small><b>${s.total}</b></div><div class="cd k"><small>Direspon</small><b>${s.respon}</b></div><div class="cd k"><small>Selesai</small><b>${s.selesai}</b></div></div>`;},
   async dash(){const s=await api('stat'),p=s.total?Math.round(s.respon/s.total*100):0;
     return `<div class="cd"><h3>Dashboard · TA ${TA}</h3><div class="row" style="margin:0 -6px"><div class="cd k"><small>Total</small><b>${s.total}</b></div><div class="cd k"><small>Sudah direspon</small><b>${s.respon}</b></div><div class="cd k"><small>Belum</small><b>${s.belum}</b></div></div>
@@ -118,10 +118,10 @@ async function go(v){
   nav();
 }
 function nav(){const n=[['home','home','Beranda'],['dash','chart','Dashboard'],['form','plus',''],['track','search','Lacak'],['resp','chat','Respons']];
-  $('#nv').innerHTML=n.map(x=>x[0]=='form'?`<button class="fab" onclick="form()" aria-label="Kirim Aspirasi">${ic('plus')}</button>`:`<button class="${cur==x[0]?'on':''}" onclick="go('${x[0]}')">${ic(x[1])}${x[2]}</button>`).join('');}
+  $('#nv').innerHTML=n.map(x=>x[0]=='form'?`<button class="fab" onclick="formAspirasi()" aria-label="Kirim Aspirasi">${ic('plus')}</button>`:`<button class="${cur==x[0]?'on':''}" onclick="go('${x[0]}')">${ic(x[1])}${x[2]}</button>`).join('');}
 
 /* ---------- Formulir ---------- */
-async function form(){
+async function formAspirasi(){
   try{META=META||await api('meta');}catch(e){return note(0,esc(e.message));}
   const d=JSON.parse(localStorage.getItem('draft')||'{}');
   const m=modal('Kirim Aspirasi',`<div class="ch" style="margin-top:12px">${['Saran','Kritik','Pengaduan'].map(j=>`<label><input type="radio" name="j" value="${j}" ${(d.j||'Saran')==j?'checked':''}><span>${j}</span></label>`).join('')}</div>
