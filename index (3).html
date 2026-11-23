@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#b78cf5">
+<title>ANDINI - SMP Negeri 1 Kota Bandar Lampung</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#efe9fa;--bg2:#d8cbf4;--cd:rgba(255,255,255,.74);--tx:#18132a;--mu:#766f8c;--ac:#b78cf5;--ac2:#8a5cdc;--ln:rgba(255,255,255,.7);--in:#f1eef7;--ok:#4caf6a;--er:#e5484d}
+[data-t=dark]{--bg1:#161225;--bg2:#271c45;--cd:rgba(42,34,66,.72);--tx:#f3effc;--mu:#a9a2be;--ln:rgba(255,255,255,.08);--in:#1f1936}
+*{box-sizing:border-box;margin:0}
+html{background:linear-gradient(160deg,var(--bg1),var(--bg2)) fixed;min-height:100%}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--tx);max-width:520px;margin:auto;padding:0 0 120px;font-size:15px;line-height:1.5}
+button,input,select,textarea{font:inherit;color:inherit}
+.ic{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+header{display:flex;align-items:center;gap:10px;padding:calc(14px + env(safe-area-inset-top)) 18px 4px}
+header b{flex:1;font-size:19px;font-weight:800;letter-spacing:.3px}
+.ib{background:var(--cd);border:1px solid var(--ln);border-radius:50%;width:42px;height:42px;display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(12px)}
+.cd{background:var(--cd);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--ln);border-radius:24px;padding:18px;margin:12px 16px;box-shadow:0 10px 30px rgba(110,70,190,.08)}
+.row{display:flex;margin:0 10px}.row .cd{flex:1;margin:12px 6px;text-align:center;padding:14px 6px}
+.k b{display:block;font-size:26px;font-weight:800}small,.mu{color:var(--mu);font-size:13px}
+h2{font-size:24px;line-height:1.25;font-weight:800;margin-bottom:6px}h3{font-size:17px;margin:2px 0 10px}
+.b{display:block;width:100%;border:0;border-radius:16px;padding:15px;background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff;font-weight:600;cursor:pointer;margin-top:12px}
+.b.g{background:var(--in);color:var(--tx)}
+input,select,textarea{width:100%;background:var(--in);border:1px solid transparent;border-radius:14px;padding:13px;margin-top:10px;outline:none}
+input:focus,select:focus,textarea:focus,button:focus-visible{border-color:var(--ac2);outline:2px solid var(--ac)}
+.ch{display:flex;gap:8px}.ch label{flex:1}.ch input{display:none}
+.ch span{display:block;text-align:center;padding:12px 4px;border-radius:14px;background:var(--in);cursor:pointer;font-weight:600}
+.ch input:checked+span{background:var(--ac);color:#fff}
+.bar{height:10px;border-radius:6px;background:var(--in);margin:4px 0 10px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--ac),var(--ac2));border-radius:6px}
+.it{cursor:pointer}.it b{display:block}
+.tag{display:inline-block;font-size:12px;padding:2px 10px;border-radius:10px;background:var(--in);margin:6px 6px 0 0}.tag.er{background:var(--er);color:#fff}
+.tabs{display:flex;gap:8px;margin:12px 16px;overflow:auto}.tabs button{border:0;background:var(--cd);padding:10px 16px;border-radius:14px;cursor:pointer;white-space:nowrap}.tabs .on{background:var(--ac);color:#fff}
+nav{position:fixed;bottom:calc(12px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);width:calc(100% - 32px);max-width:488px;display:flex;align-items:center;justify-content:space-around;background:var(--cd);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--ln);border-radius:28px;padding:8px;box-shadow:0 12px 36px rgba(110,70,190,.2)}
+nav button{flex:1;border:0;background:none;display:grid;justify-items:center;gap:2px;font-size:11px;padding:8px 2px;border-radius:18px;color:var(--mu);cursor:pointer}
+nav button.on{background:var(--ac);color:#fff}
+nav .fab{flex:none;width:60px;height:60px;margin-top:-34px;border-radius:50%;background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff;box-shadow:0 8px 24px rgba(138,92,220,.5);padding:0}
+.ov{position:fixed;inset:0;background:rgba(20,10,40,.45);backdrop-filter:blur(4px);display:flex;align-items:flex-end;justify-content:center;z-index:20}
+.sh{background:var(--bg1);width:100%;max-width:520px;max-height:92vh;overflow:auto;border-radius:28px 28px 0 0;padding:18px 18px calc(18px + env(safe-area-inset-bottom));animation:up .22s ease}
+@keyframes up{from{transform:translateY(30px);opacity:0}}
+.hd{display:flex;align-items:center;justify-content:space-between;font-size:18px}.x{border:0;background:var(--in);border-radius:50%;width:40px;height:40px;cursor:pointer;display:grid;place-items:center}
+.ft{display:flex;gap:10px}.c{text-align:center;padding:14px 0}.wr{font-size:13px;color:var(--mu);margin-top:10px}
+.code{font-size:26px;font-weight:800;letter-spacing:2px;text-align:center;background:var(--in);border-radius:16px;padding:10px;margin:8px 0}
+#sp{position:fixed;inset:0;z-index:50;display:grid;place-content:center;justify-items:center;gap:14px;background:linear-gradient(160deg,var(--bg1),var(--bg2));transition:opacity .5s}
+#sp h1{font-size:34px;font-weight:800;letter-spacing:4px}#sp .ld{width:150px;height:6px;border-radius:4px;background:var(--in);overflow:hidden}#sp .ld i{display:block;height:100%;width:40%;background:var(--ac2);border-radius:4px;animation:ld 1.1s infinite ease-in-out}
+@keyframes ld{from{margin-left:-40%}to{margin-left:100%}}
+#sp p{position:absolute;bottom:calc(20px + env(safe-area-inset-bottom));font-size:12px;color:var(--mu)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<div id="sp">
+  <svg width="96" height="96" viewBox="0 0 96 96"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c9a6ff"/><stop offset="1" stop-color="#7f4fd8"/></linearGradient></defs><rect width="96" height="96" rx="28" fill="url(#g)"/><path d="M48 20c-14 0-24 9-24 21 0 7 3 12 8 16l-2 12 12-7c2 .4 4 .6 6 .6 14 0 24-9 24-21S62 20 48 20z" fill="none" stroke="#fff" stroke-width="4" stroke-linejoin="round"/><path d="M38 44l7 7 14-15" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <h1>ANDINI</h1><small>Analisa dan Deteksi Dini</small><div class="ld"><i></i></div>
+  <p>Copyright@2026 ANDINI by Aluna</p>
+</div>
+<header><b>ANDINI</b><button class="ib" id="th" aria-label="Ganti tema"></button><button class="ib" id="ab" aria-label="Tentang"></button></header>
+<main id="v"></main>
+<nav id="nv"></nav>
+<script>
+const API='GANTI_DENGAN_URL_WEB_APP'; // tempel URL Web App Apps Script di sini
+const SCH='SMP Negeri 1 Kota Bandar Lampung', TA='2026/2027';
+const I={home:'M3 11l9-8 9 8M5 10v10h14V10',chart:'M4 20V10M10 20V4M16 20v-7M22 20H2',plus:'M12 5v14M5 12h14',search:'M11 19a8 8 0 100-16 8 8 0 000 16zM21 21l-4-4',chat:'M21 12a8 8 0 01-11.6 7.1L3 21l1.9-5.4A8 8 0 1121 12z',moon:'M21 13A9 9 0 1111 3a7 7 0 0010 10z',x:'M6 6l12 12M18 6L6 18',info:'M12 11v6M12 7.5v.01M12 21a9 9 0 100-18 9 9 0 000 18z'};
+const $=s=>document.querySelector(s),ic=n=>`<svg class="ic" viewBox="0 0 24 24"><path d="${I[n]}"/></svg>`;
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fd=s=>new Date(s).toLocaleDateString('id-ID',{day:'numeric',month:'short',year:'numeric'});
+let S=JSON.parse(sessionStorage.getItem('s')||'null'),META,cur='home',AT='inbox',LIST=[];
+
+async function api(a,d={}){
+  const r=await fetch(API,{method:'POST',body:JSON.stringify({a,t:S&&S.t,...d})});
+  const j=await r.json(); if(!j.ok) throw new Error(j.e); return j.d;
+}
+function modal(t,body,foot=''){
+  const m=document.createElement('div');m.className='ov';
+  m.innerHTML=`<div class="sh"><div class="hd"><b>${t}</b><button class="x" aria-label="Tutup">${ic('x')}</button></div>${body}${foot}</div>`;
+  m.querySelector('.x').onclick=()=>m.remove();document.body.append(m);return m;
+}
+function note(ok,msg){const m=modal(ok?'Berhasil':'Gagal',`<p class="c" style="color:${ok?'var(--ok)':'var(--er)'}">${msg}</p>`,'<button class="b" data-c>OK</button>');m.querySelector('[data-c]').onclick=()=>m.remove();}
+const ask=msg=>new Promise(r=>{const m=modal('Konfirmasi',`<p class="c">${msg}</p>`,'<div class="ft"><button class="b g" data-n>Batal</button><button class="b" data-y>Ya, kirim</button></div>');
+  m.querySelector('[data-n]').onclick=()=>{m.remove();r(0)};m.querySelector('[data-y]').onclick=()=>{m.remove();r(1)};m.querySelector('.x').onclick=()=>{m.remove();r(0)};});
+const bars=(o,fmt=k=>k)=>{const mx=Math.max(1,...Object.values(o));return Object.keys(o).sort().map(k=>`<small>${esc(fmt(k))} (${o[k]})</small><div class="bar"><i style="width:${o[k]/mx*100}%"></i></div>`).join('')||'<p class="mu">Belum ada data.</p>';};
+
+/* ---------- Halaman ---------- */
+const V={
+  async home(){const s=await api('stat');
+    return `<div class="cd"><h2>Suaramu penting.</h2><p class="mu">Sampaikan saran, kritik, dan pengaduan untuk ${SCH} tanpa menyebut nama.</p><button class="b" onclick="form()">+ Kirim Aspirasi</button></div>
+    <div class="row"><div class="cd k"><small>Masuk</small><b>${s.total}</b></div><div class="cd k"><small>Direspon</small><b>${s.respon}</b></div><div class="cd k"><small>Selesai</small><b>${s.selesai}</b></div></div>`;},
+  async dash(){const s=await api('stat'),p=s.total?Math.round(s.respon/s.total*100):0;
+    return `<div class="cd"><h3>Dashboard · TA ${TA}</h3><div class="row" style="margin:0 -6px"><div class="cd k"><small>Total</small><b>${s.total}</b></div><div class="cd k"><small>Sudah direspon</small><b>${s.respon}</b></div><div class="cd k"><small>Belum</small><b>${s.belum}</b></div></div>
+    <small>Persentase respons (${p}%)</small><div class="bar"><i style="width:${p}%"></i></div></div>
+    <div class="cd"><h3>Per kategori</h3>${bars(s.kat)}</div>
+    <div class="cd"><h3>Tren bulanan</h3>${bars(s.bln,k=>new Date(k+'-01').toLocaleDateString('id-ID',{month:'long',year:'numeric'}))}</div>`;},
+  async track(){const mine=JSON.parse(localStorage.getItem('mine')||'[]');
+    return `<div class="cd"><h3>Lacak Aspirasi</h3><input id="rf" placeholder="Nomor referensi (AND-…)" autocapitalize="characters"><input id="kd" placeholder="Kode rahasia" autocapitalize="characters"><button class="b" onclick="lacak()">Lacak</button></div><div id="hs"></div>
+    ${mine.length?`<div class="cd"><h3>Tersimpan di HP ini</h3>${mine.map(m=>`<div class="it" onclick="$('#rf').value='${esc(m.ref)}';$('#kd').value='${esc(m.kode)}';lacak()"><b>${esc(m.ref)}</b><small>${esc(m.judul)}</small></div><hr style="border:0;border-top:1px solid var(--in);margin:8px 0">`).join('')}</div>`:''}`;},
+  async resp(){const r=await api('publik');
+    return `<div class="cd"><h3>Respons Sekolah</h3><p class="mu">Tanggapan resmi tanpa isi laporan pribadi.</p></div>`+(r.map(x=>`<div class="cd"><small>${fd(x.tanggal)}</small><span class="tag">${esc(x.kategori)}</span><span class="tag">${esc(x.status)}</span><p style="margin-top:8px">${esc(x.teks)}</p></div>`).join('')||'<div class="cd"><p class="mu">Belum ada respons. Respons resmi akan tampil di sini.</p></div>');},
+  async about(){return `<div class="cd"><h2>Tentang ANDINI</h2><p>Analisa dan Deteksi Dini: sarana ${SCH} untuk menyampaikan saran, kritik, dan pengaduan secara anonim, dengan tindak lanjut yang bisa dilacak.</p>
+    <p class="wr"><b>Soal anonimitas:</b> aplikasi tidak meminta nama, NIS, kelas, atau kontak, dan tidak menyimpan identitas pelapor. Namun anonimitas ini ada di tingkat aplikasi; infrastruktur hosting dan operator jaringan tetap bisa mencatat lalu lintas internet. Jangan menulis identitas pribadi di laporan.</p>
+    <button class="b g" onclick="S?go('admin'):login()">Masuk Pengurus</button></div><div class="cd"><small>Copyright@2026 ANDINI by Aluna</small></div>`;},
+  async admin(){
+    if(!S) return `<div class="cd"><p>Silakan masuk dulu.</p><button class="b" onclick="login()">Masuk</button></div>`;
+    const tabs=S.role=='osis'?[['inbox','Inbox']]:S.role=='petugas'?[['sens','Sensitif']]:[['inbox','Inbox'],['sens','Sensitif'],['usr','Pengguna'],['log','Audit Log']];
+    if(!tabs.some(t=>t[0]==AT)) AT=tabs[0][0];
+    let h=`<div class="cd"><b>${esc(S.nama)}</b> <span class="tag">${S.role}</span><button class="b g" onclick="logout()">Keluar</button></div><div class="tabs">${tabs.map(t=>`<button class="${AT==t[0]?'on':''}" onclick="AT='${t[0]}';go('admin')">${t[1]}</button>`).join('')}</div>`;
+    if(AT=='usr'){const u=await api('users');h+=`<div class="cd"><button class="b" onclick="addUser()">+ Tambah Akun</button></div>`+u.map(x=>`<div class="cd"><b>${esc(x.nama)}</b><br><small>${esc(x.username)} · ${x.role}</small></div>`).join('');}
+    else if(AT=='log'){const l=await api('audit');h+=l.map(x=>`<div class="cd"><small>${new Date(x.waktu).toLocaleString('id-ID')}</small><br><b>${esc(x.aksi)}</b> ${esc(x.user)}<br><small>${esc(x.detail)}</small></div>`).join('');}
+    else{LIST=await api('list');const all=LIST.filter(a=>a.telat).length,L=LIST.filter(a=>(AT=='sens')==(a.sensitif==1));
+      if(all) h+=`<div class="cd" style="border-color:var(--er)"><b>Notifikasi:</b> ${all} laporan melewati batas waktu (SLA).</div>`;
+      h+=L.map(a=>`<div class="cd it" onclick="detail('${a.id}')"><b>${esc(a.judul)}</b><small>${esc(a.jenis)} · ${esc(a.kategori)} · ${fd(a.tanggal)}</small><br><span class="tag">${esc(a.status)}</span>${a.telat?'<span class="tag er">Terlambat</span>':''}</div>`).join('')||'<div class="cd"><p class="mu">Tidak ada laporan.</p></div>';}
+    return h;}
+};
+
+async function go(v){
+  cur=v;const m=$('#v');m.innerHTML='<div class="cd"><p class="mu">Memuat…</p></div>';
+  try{m.innerHTML=await V[v]();}catch(e){m.innerHTML=`<div class="cd"><p style="color:var(--er)">${esc(e.message)}</p><button class="b g" onclick="go('${v}')">Coba lagi</button></div>`;}
+  nav();
+}
+function nav(){const n=[['home','home','Beranda'],['dash','chart','Dashboard'],['form','plus',''],['track','search','Lacak'],['resp','chat','Respons']];
+  $('#nv').innerHTML=n.map(x=>x[0]=='form'?`<button class="fab" onclick="form()" aria-label="Kirim Aspirasi">${ic('plus')}</button>`:`<button class="${cur==x[0]?'on':''}" onclick="go('${x[0]}')">${ic(x[1])}${x[2]}</button>`).join('');}
+
+/* ---------- Formulir ---------- */
+async function form(){
+  try{META=META||await api('meta');}catch(e){return note(0,esc(e.message));}
+  const d=JSON.parse(localStorage.getItem('draft')||'{}');
+  const m=modal('Kirim Aspirasi',`<div class="ch" style="margin-top:12px">${['Saran','Kritik','Pengaduan'].map(j=>`<label><input type="radio" name="j" value="${j}" ${(d.j||'Saran')==j?'checked':''}><span>${j}</span></label>`).join('')}</div>
+    <select id="k">${META.kat.map(k=>`<option ${d.k==k.nama?'selected':''}>${esc(k.nama)}</option>`).join('')}</select>
+    <select id="l">${META.lok.map(l=>`<option ${d.l==l?'selected':''}>${esc(l)}</option>`).join('')}</select>
+    <input id="lx" placeholder="Tulis lokasi lainnya" hidden>
+    <input id="t" maxlength="100" placeholder="Judul singkat" value="${esc(d.t)}">
+    <textarea id="u" rows="5" maxlength="2000" placeholder="Apa yang terjadi, di mana, dan kapan? Jangan tulis nama atau identitas pribadi.">${esc(d.u)}</textarea>
+    <p class="wr" id="sn">Jangan mencantumkan nama, NIS, kelas, atau nomor telepon.</p>`,
+    '<div class="ft"><button class="b g" data-c>Batal</button><button class="b" data-s>Kirim</button></div>');
+  const g=i=>m.querySelector(i),sv=()=>localStorage.setItem('draft',JSON.stringify({j:m.querySelector('[name=j]:checked').value,k:g('#k').value,l:g('#l').value,t:g('#t').value,u:g('#u').value}));
+  const up=()=>{g('#lx').hidden=g('#l').value!='Lainnya';const s=META.kat.find(k=>k.nama==g('#k').value);g('#sn').innerHTML=s&&s.sensitif==1?'Laporan kategori ini hanya dibaca petugas berwenang (Guru BK/Pembina). Jika ada bahaya mendesak, segera temui guru.':'Jangan mencantumkan nama, NIS, kelas, atau nomor telepon.';};
+  m.oninput=m.onchange=()=>{up();sv();};up();
+  g('[data-c]').onclick=()=>m.remove();
+  g('[data-s]').onclick=async()=>{
+    const jd=g('#t').value.trim(),ur=g('#u').value.trim();
+    if(jd.length<3||ur.length<10) return note(0,'Isi judul (min. 3 huruf) dan uraian (min. 10 huruf).');
+    if(!await ask('Kirim aspirasi ini? Pastikan tidak ada identitas pribadi di dalamnya.')) return;
+    const lok=g('#l').value=='Lainnya'?(g('#lx').value.trim()||'Lainnya'):g('#l').value;
+    try{const r=await api('kirim',{jenis:m.querySelector('[name=j]:checked').value,kategori:g('#k').value,lokasi:lok,judul:jd,uraian:ur});
+      const mine=JSON.parse(localStorage.getItem('mine')||'[]');mine.unshift({ref:r.ref,kode:r.kode,judul:jd});localStorage.setItem('mine',JSON.stringify(mine.slice(0,20)));
+      localStorage.removeItem('draft');m.remove();
+      const n=modal('Berhasil terkirim',`<p class="c">Simpan nomor dan kode ini untuk melacak laporanmu. Kode tidak bisa dilihat lagi dan tidak bisa dipulihkan.</p><div class="code">${r.ref}</div><div class="code">${r.kode}</div><p class="wr">Keduanya juga disimpan di HP ini (menu Lacak).</p>`,'<button class="b" data-c>Selesai</button>');
+      n.querySelector('[data-c]').onclick=()=>{n.remove();go('track');};
+    }catch(e){note(0,esc(e.message));}
+  };
+}
+async function lacak(){
+  try{const r=await api('lacak',{ref:$('#rf').value,kode:$('#kd').value});
+    $('#hs').innerHTML=`<div class="cd"><small>${fd(r.tanggal)} · ${esc(r.jenis)} · ${esc(r.kategori)}</small><h3>${esc(r.judul)}</h3><span class="tag">${esc(r.status)}</span>${r.respons.map(x=>`<div class="cd" style="margin:10px 0 0"><small>${fd(x.tanggal)} · Respons sekolah</small><p>${esc(x.teks)}</p></div>`).join('')||'<p class="mu" style="margin-top:8px">Belum ada respons.</p>'}</div>`;
+  }catch(e){note(0,esc(e.message));}
+}
+
+/* ---------- Admin ---------- */
+function login(){
+  const m=modal('Masuk Pengurus',`<input id="lu" placeholder="Username" autocapitalize="none"><input id="lp" type="password" placeholder="Kata sandi">`,'<div class="ft"><button class="b g" data-c>Batal</button><button class="b" data-s>Masuk</button></div>');
+  m.querySelector('[data-c]').onclick=()=>m.remove();
+  m.querySelector('[data-s]').onclick=async()=>{
+    const u=m.querySelector('#lu').value.trim(),p=m.querySelector('#lp').value;
+    if(!u||!p) return note(0,'Username dan kata sandi wajib diisi.');
+    try{S=await api('login',{u,p});sessionStorage.setItem('s',JSON.stringify(S));AT=S.role=='petugas'?'sens':'inbox';m.remove();go('admin');}catch(e){note(0,esc(e.message));}
+  };
+}
+function logout(){S=null;sessionStorage.removeItem('s');go('home');}
+async function detail(id){
+  const a=LIST.find(x=>x.id==id),sens=a.sensitif==1;let pt='';
+  if(S.role=='super'&&sens){try{pt=(await api('users')).filter(u=>u.role=='petugas').map(u=>`<option ${a.petugas==u.username?'selected':''} value="${u.username}">${esc(u.nama)}</option>`).join('');}catch(e){}}
+  const m=modal('Detail Laporan',`<small>${esc(a.ref)} · ${esc(a.jenis)} · ${esc(a.kategori)} · ${esc(a.lokasi)}</small><h3 style="margin-top:6px">${esc(a.judul)}</h3><p style="white-space:pre-wrap">${esc(a.uraian)}</p>
+    <select id="st">${['Diterima','Ditelaah','Diproses','Selesai','Ditolak'].map(s=>`<option ${a.status==s?'selected':''}>${s}</option>`).join('')}</select>
+    <textarea id="rs" rows="3" placeholder="Respons publik (aman, tanpa detail pribadi)"></textarea>
+    ${sens&&S.role!='osis'?`<textarea id="ct" rows="3" placeholder="Catatan internal (rahasia)"></textarea><p class="wr" style="white-space:pre-wrap">${esc(a.catatan)}</p>`:''}
+    ${pt?`<select id="pt"><option value="">— Tugaskan petugas —</option>${pt}</select>`:''}`,
+    '<div class="ft"><button class="b g" data-c>Batal</button><button class="b" data-s>Simpan</button></div>');
+  m.querySelector('[data-c]').onclick=()=>m.remove();
+  m.querySelector('[data-s]').onclick=async()=>{
+    const g=i=>m.querySelector(i)&&m.querySelector(i).value;
+    try{await api('update',{id,status:g('#st'),respons:g('#rs'),catatan:g('#ct')});if(g('#pt'))await api('tugaskan',{id,petugas:g('#pt')});m.remove();note(1,'Perubahan tersimpan.');go('admin');}catch(e){note(0,esc(e.message));}
+  };
+}
+function addUser(){
+  const m=modal('Tambah Akun',`<input id="un" placeholder="Username (huruf kecil/angka)" autocapitalize="none"><input id="nm" placeholder="Nama lengkap"><select id="ro"><option value="osis">Admin OSIS</option><option value="petugas">Petugas Laporan Sensitif</option><option value="super">Super Admin</option></select><input id="pw" type="password" placeholder="Kata sandi (min. 8 karakter)">`,'<div class="ft"><button class="b g" data-c>Batal</button><button class="b" data-s>Simpan</button></div>');
+  m.querySelector('[data-c]').onclick=()=>m.remove();
+  m.querySelector('[data-s]').onclick=async()=>{const g=i=>m.querySelector(i).value.trim();
+    try{await api('tambah',{username:g('#un'),nama:g('#nm'),role:g('#ro'),password:m.querySelector('#pw').value});m.remove();note(1,'Akun dibuat.');go('admin');}catch(e){note(0,esc(e.message));}};
+}
+
+/* ---------- Tema & mulai ---------- */
+const setT=t=>{document.documentElement.dataset.t=t;localStorage.setItem('th',t);};
+setT(localStorage.getItem('th')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
+$('#th').innerHTML=ic('moon');$('#ab').innerHTML=ic('info');
+$('#th').onclick=()=>setT(document.documentElement.dataset.t=='dark'?'light':'dark');
+$('#ab').onclick=()=>go('about');
+setTimeout(()=>{$('#sp').style.opacity=0;setTimeout(()=>$('#sp').remove(),500);},1600);
+go('home');
+</script>
+</body>
+</html>
